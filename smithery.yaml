@@ -1,0 +1,18 @@
+# Smithery configuration for CoverageUnlocked MCP Server
+# https://smithery.ai/docs/config
+
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: "CoverageUnlocked Pro API key (optional — free tier works without key)"
+    required: []
+  commandFunction: |-
+    (config) => ({
+      command: "node",
+      args: ["dist/index.js"],
+      env: config.apiKey ? { COVERAGEUNLOCKED_API_KEY: config.apiKey } : {}
+    })

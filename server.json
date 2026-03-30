@@ -1,0 +1,41 @@
+{
+  "name": "@coverageunlocked/mcp-server",
+  "version": "1.0.0",
+  "description": "Insurance denial appeal intelligence. Get win probabilities, appeal strategies, payer insights, and regulatory leverage for any CPT code — powered by 20 years of insider knowledge.",
+  "homepage": "https://coverageunlocked.com",
+  "repository": "https://github.com/edgeedgehq/coverageunlocked-mcp",
+  "author": {
+    "name": "CoverageUnlocked",
+    "email": "ned@coverageunlocked.com",
+    "url": "https://coverageunlocked.com"
+  },
+  "license": "MIT",
+  "categories": ["healthcare", "insurance", "medical-billing", "appeals", "compliance"],
+  "tools": [
+    {
+      "name": "analyze_denial",
+      "description": "Analyze an insurance denial — win probability, denial reasons, appeal guidance for any CPT code"
+    },
+    {
+      "name": "check_denial_risk",
+      "description": "Pre-submission denial risk check — assess risk before submitting a claim"
+    },
+    {
+      "name": "get_appeal_strategy",
+      "description": "Full appeal strategy with counter-arguments, regulatory citations, and insider tips"
+    },
+    {
+      "name": "get_payer_intelligence",
+      "description": "Payer behavioral intelligence — denial tactics and counter-strategies"
+    },
+    {
+      "name": "get_regulatory_leverage",
+      "description": "State-specific regulatory leverage — appeal deadlines, prompt payment, parity enforcement"
+    }
+  ],
+  "runtime": {
+    "type": "node",
+    "command": "npx",
+    "args": ["-y", "@coverageunlocked/mcp-server"]
+  }
+}

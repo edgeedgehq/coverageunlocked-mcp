@@ -1,0 +1,57 @@
+{
+  "name": "@coverageunlocked/mcp-server",
+  "version": "1.0.0",
+  "description": "Insurance denial appeal intelligence. Get win probabilities, appeal strategies, payer insights, and regulatory leverage for any CPT code — powered by 20 years of insider knowledge.",
+  "author": "CoverageUnlocked <ned@coverageunlocked.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "coverageunlocked-mcp": "dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "insurance",
+    "denial",
+    "appeal",
+    "healthcare",
+    "revenue-cycle",
+    "claims",
+    "health-insurance",
+    "prior-authorization",
+    "medical-billing",
+    "denial-management",
+    "CPT",
+    "payer-intelligence"
+  ],
+  "homepage": "https://coverageunlocked.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edgeedgehq/coverageunlocked-mcp"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}
