@@ -20,7 +20,7 @@ import {
 } from './data/denial-database.js';
 import { getPayerProfile, PAYER_PROFILES } from './data/payer-profiles.js';
 import { getStateProfile, getStateByName } from './data/state-profiles.js';
-import { getAccessTier, checkRateLimit, getUpgradeMessage, getRateLimitMessage } from './auth/tier-manager.js';
+import { getAccessTier, checkRateLimit, getUpgradeMessage, getRateLimitMessage, trackUsage } from './auth/tier-manager.js';
 
 const server = new McpServer({
   name: 'coverageunlocked',
@@ -39,15 +39,21 @@ server.tool(
     payer: z.string().optional().describe('Insurance company name (e.g., "UnitedHealthcare", "Anthem", "Aetna", "Cigna", "Humana", "BCBS")'),
     state: z.string().optional().describe('Two-letter state code (e.g., "CA", "TX", "NY") for state-specific regulatory leverage'),
     denial_reason: z.string().optional().describe('The reason given for the denial, if available'),
-    api_key: z.string().optional().describe('CoverageUnlocked API key for Pro access. Free tier: 10 queries/day with basic results.'),
+    api_key: z.string().optional().describe('CoverageUnlocked API key for Pro access. Free tier: 10 queries/day with basic results. Get Pro at https://app.coverageunlocked.com/mcp'),
   },
   async ({ cpt_code, payer, state, denial_reason, api_key }) => {
-    const tier = getAccessTier(api_key);
-    const identifier = api_key || 'anonymous';
+    const activeKey = api_key || process.env.COVERAGEUNLOCKED_API_KEY;
+    const tier = getAccessTier(activeKey);
+    const identifier = activeKey || 'anonymous';
     const rateCheck = checkRateLimit(identifier, tier);
 
     if (!rateCheck.allowed) {
       return { content: [{ type: 'text' as const, text: getRateLimitMessage(rateCheck.resetIn) }] };
+    }
+
+    // Fire-and-forget analytics for Pro/Enterprise key holders
+    if (activeKey) {
+      trackUsage({ apiKey: activeKey, toolName: 'analyze_denial', cptCode: cpt_code, payer, state });
     }
 
     const pattern = getDenialPatternWithFallback(cpt_code);
