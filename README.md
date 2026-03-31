@@ -34,7 +34,7 @@ Get win probabilities, appeal strategies, payer behavioral intelligence, and reg
 ### Install via npx (no setup required)
 
 ```bash
-npx @coverageunlocked/mcp-server
+npx coverageunlocked-mcp
 ```
 
 ### Claude Desktop Configuration
@@ -46,7 +46,7 @@ Add to your `claude_desktop_config.json`:
   "mcpServers": {
     "coverageunlocked": {
       "command": "npx",
-      "args": ["-y", "@coverageunlocked/mcp-server"]
+      "args": ["-y", "coverageunlocked-mcp"]
     }
   }
 }
@@ -60,7 +60,7 @@ Add to your MCP settings:
 {
   "coverageunlocked": {
     "command": "npx",
-    "args": ["-y", "@coverageunlocked/mcp-server"]
+    "args": ["-y", "coverageunlocked-mcp"]
   }
 }
 ```
