@@ -3,3 +3,4 @@ dist/
 *.tsbuildinfo
 .env
 test.ts
+.mcpregistry_github_token
