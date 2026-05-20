@@ -14,7 +14,7 @@ Get win probabilities, appeal strategies, payer behavioral intelligence, and reg
 
 ## Coverage
 
-- **489+ CPT codes** across 9 procedure categories (surgical, E&M, imaging, infusion/chemo, rehab, mental health, diagnostic, DME, lab/pathology)
+- **480+ curated CPT codes** with deep insider commentary, payer-specific rates, and regulatory leverage — backed by a **17,000+ total** CPT/HCPCS coverage layer across 9 procedure categories (surgical, E&M, imaging, infusion/chemo, rehab, mental health, diagnostic, DME, lab/pathology)
 - **7 major payers** with behavioral profiles (UnitedHealthcare, Anthem, Aetna, Cigna, Humana, BCBS, TRICARE)
 - **15 state regulatory profiles** with appeal deadlines, prompt payment laws, and parity enforcement
 - **Category-level fallback** for any CPT code not in the detailed database
@@ -86,7 +86,7 @@ Add to your MCP settings:
 - Batch processing
 - Custom payer profiles
 - Integration support
-- API access to full 489-code database
+- API access to the full 480+ curated / 17,000+ total CPT/HCPCS database
 
 ## Example
 
